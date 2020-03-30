@@ -15,6 +15,8 @@ RUN Rscript -e "install.packages(c('devtools', 'BiocManager', 'remotes'), depend
     && echo -e "local({\noptions(repos = BiocManager::repositories())\n})\n" >> ~/.Rprofile.site \
     # NOTE: these seem to be required for garnett to succeed in docker. DESeq2/genefilter added for Seurat
     && Rscript -e "BiocManager::install(c('org.Hs.eg.db', 'org.Mm.eg.db', 'HSMMSingleCell', 'monocle', 'DelayedMatrixStats', 'DESeq2', 'genefilter'), dependencies=TRUE, ask = FALSE)" \
+    && Rscript -e "BiocManager::install(c('ggplot2', 'Matrix', 'plotly', 'shiny', 'shinyWidgets', 'rclipboard', 'shinydashboard', 'data.table', 'ggrepel', 'viridis', 'RColorBrewer', 'grid', 'gridExtra', 'dplyr', 'shinyFiles', 'BiocParallel', 'ggnewscale', 'ggpubr'), dependencies=TRUE, ask = FALSE)" \
+    && Rscript -e "BiocManager::install(c('flexdashboard', 'shinyMatrix', 'shinyBS', 'rsconnect', 'ggupset', 'tidyr', 'reshape2', 'stringr', 'readxl', 'datapasta', 'cowplot', 'kableExtra', 'DT', 'formattable', 'rhandsontable', 'stats', 'testthat', 'AnnotationHub', 'ReactomePA', 'clusterProfiler', 'DOSE', 'enrichplot', 'fgsea', 'biomaRt', 'STRINGdb', 'RDAVIDWebService', 'msigdbr'), dependencies=TRUE, ask = FALSE)" \
     && Rscript -e "devtools::install_github(repo = 'bimberlabinternal/OOSAP', ref = 'Dev', dependencies = T, upgrade = 'always')" \
     && rm -rf /tmp/downloaded_packages/ /tmp/*.rds
 
