@@ -36,8 +36,8 @@ RUN cd /OOSAP \
 ##avoid caching of below commands
 ARG CACHEBUST=3
 # copy the app to the image
-COPY genesetvis /usr/local/src/genesetvis/
+COPY ShinySDA /usr/local/src/ShinySDA/
 # select port
 EXPOSE 3838
 # run app
-CMD ["R", "-e", "shiny::runApp('/usr/local/src/genesetvis/', host ='0.0.0.0', port = 3838, launch.browser = TRUE)"]
+CMD ["R", "-e", "shiny::runApp('/usr/local/src/ShinySDA/', host ='0.0.0.0', port = 3838, launch.browser = TRUE)"]
